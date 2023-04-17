@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen ForEach Academy : Admin</title>
+    <link rel="stylesheet" href="../../style.css">
+
+</head>
+<body>
+
+    <h1> Ajouter une nouvelle excuse </h1>
+
+    <form class="create-form">
+
+        <div class="input-tag">
+            <label for="tag" class="form-label">Choisissez un tag</label>
+            <select name="tag" id="tag" class="form-control">
+                <option value="">--Choisir une option--</option>
+                <option value="Inexcusable">Inexcusable</option>
+                <option value="Novelty Implementations">Novelty Implementations</option>
+                <option value="Edge Cases">Edge Cases</option>
+                <option value="Fucking">Fucking</option>
+                <option value="Syntax Errors">Syntax Errors</option>
+                <option value="Substance">Substance</option>
+                <option value="Predictable Problems">Predictable Problems</option>
+                <option value="Somebody Else's Problem">Somebody Else's Problem</option>
+                <option value="Internet Crashed">Internet Crashed</option>
+            </select>
+        </div>
+
+        <div class="input-message">
+            <label for="message" class="form-label"> Entrez votre excuse </label>
+            <input name="message" type="text" class="form-control">
+        </div>
+
+        <button type="submit" id="btn"> Valider </button>
+
+    </form>
+
+    <script src="./create.js"></script>
+</body>
+</html>

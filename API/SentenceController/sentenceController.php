@@ -35,5 +35,32 @@ class sentenceController {
             
             return $sentences;
         }
+
+    // On créé un objet dans la table renvoyé sous forme de booléen
+        public function create($tag, $message) : bool 
+        {
+            // On vérifie l'entrée 
+                if (is_string($message))
+                {
+                // On sécurise l'entrée 
+                    $message = htmlspecialchars(strip_tags($message));
+
+                // On créé l'objet
+                    $req = $this->pdo->prepare("INSERT INTO `sentence` (tag, message) VALUES (:tag, :message)");
+                    $req->bindValue(':tag', $tag, PDO::PARAM_STR);
+                    $req->bindValue(':message', $message, PDO::PARAM_STR);
+                    
+                // On return la réponse
+                    if ($req->execute())
+                    {
+                        return true;
+                    } 
+                    else 
+                    {
+                        return false;
+                    }
+                }
+        }
+
 }
 
