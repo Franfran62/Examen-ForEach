@@ -1,6 +1,6 @@
 const urlApi = 'http://localhost:8888/Test%20ForEach/Code/API/getAll.php?key=ForeachAcademyKey';
 const url404 = "http://localhost:8888/Test%20ForEach/Code/Appli/erreur404.html";
-const List = document.getElementById('liste');
+const list = document.getElementById('liste');
 
 callApi();
 
@@ -36,7 +36,7 @@ async function callApi() {
 
 function createHTML(sentence) {
     
-    List.innerHTML += 
+    list.innerHTML += 
     `<li>
         <span class="httpCode"> ${sentence.http_code} </span> 
         <span class="tag"> ${sentence.tag} </span> 

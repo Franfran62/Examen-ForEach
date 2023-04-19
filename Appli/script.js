@@ -1,27 +1,27 @@
 const urlApi = 'http://localhost:8888/Test%20ForEach/Code/API/getAll.php?key=ForeachAcademyKey';
 const url404 = "http://localhost:8888/Test%20ForEach/Code/Appli/erreur404.html";
 
-const Btn = document.getElementById('btn');
-const ExcuseDiv = document.getElementById('excuse-div');
-const Loader = document.getElementById('loader');
+const btn = document.getElementById('btn');
+const excuseDiv = document.getElementById('excuse-div');
+const loader = document.getElementById('loader');
 
 
 
 // On écoute le Btn afin de lancer le call API
-Btn.addEventListener('click', () => {
+btn.addEventListener('click', () => {
     setLoader();
     callApi();
 })
 
 function setLoader() {
-    ExcuseDiv.style.display = "none";
-    Loader.style.display = "block";
+    excuseDiv.style.display = "none";
+    loader.style.display = "block";
 
 }
 
 function unsetLoader() {
-    ExcuseDiv.style.display = "block";
-    Loader.style.display = "none";
+    excuseDiv.style.display = "block";
+    loader.style.display = "none";
 }
 
 // On appelle L'API et retourne un tableau contenant l'ensemble des data
@@ -58,7 +58,7 @@ async function callApi() {
     }
 
     // On envoie nos données reçu dans un sous-composant qui va selectionner une seule phrase
-    DefineOneSentence(dataReceived);
+    defineOneSentence(dataReceived);
 }
 
 // On renvoie un nombre aléatoire entre une valeur min (incluse) et une valeur max (incluse)
@@ -69,7 +69,7 @@ function getRandomBetweenMinAndMax(min, max) {
 }
 
 // On Selectionne une phrase parmi toutes
-function DefineOneSentence(dataReceived) {
+function defineOneSentence(dataReceived) {
     const lowerHttpCode = dataReceived[0].http_code;
     let higherHttpCode;
     let randomHttpCode;
@@ -85,19 +85,19 @@ function DefineOneSentence(dataReceived) {
     randomSentence = dataReceived.find(sentence => sentence.http_code === randomHttpCode.toString());
 
     // On envoie à vérification 
-    CheckSentence(randomSentence);
+    checkSentence(randomSentence);
 }
 
 // On vérifie si la phrase selectionnée est différente de l'ancienne
 // Si oui, on l'affiche
 // Si non, on hook pour générer une nouvelle phrase
-function CheckSentence(randomSentence) {
+function checkSentence(randomSentence) {
 
-    if ( ExcuseDiv.textContent !== randomSentence.message)
+    if ( excuseDiv.textContent !== randomSentence.message)
     {
         setTimeout(() => {
             unsetLoader();
-            ExcuseDiv.textContent = randomSentence.message;
+            excuseDiv.textContent = randomSentence.message;
 
         }, getRandomBetweenMinAndMax(1000,5000));
     } else {
