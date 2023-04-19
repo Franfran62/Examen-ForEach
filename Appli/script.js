@@ -14,7 +14,7 @@ btn.addEventListener('click', () => {
 
 function setLoader() {
     excuseDiv.style.display = "none";
-    loader.style.display = "block";
+    loader.style.display = "flex";
 
 }
 
@@ -54,7 +54,8 @@ async function callApi() {
 
     } catch (error) {
 
-        window.location = window.url404;
+        // window.location = window.url404;
+        console.log(API);
 
     }
 

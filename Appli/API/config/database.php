@@ -9,7 +9,6 @@ class database {
     private $username = "root";
     private $password = "root";
 
-
     // On se connecte à la BDD à la création
 
         public function getConnection()
@@ -30,4 +29,5 @@ class database {
             } 
 
     }
+
 }

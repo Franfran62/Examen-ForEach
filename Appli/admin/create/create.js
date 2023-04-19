@@ -14,6 +14,12 @@ const inputs = [];
 function addSentence() {
 
     let formObj = new FormData(form);
+    
+        if (formObj.get('tag') === "") 
+        { 
+            alert ('Veuillez choisir un Tag');
+            return;
+        }
 
     const headers = new Headers();
     headers.append("Content-Type", "application/json");

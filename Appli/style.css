@@ -1,3 +1,111 @@
+/* Pour toutes les pages */
+*, ::before, ::after {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to right, #F5E6E8, #D5C6E0);
+    color: #192A51;
+    font-family: 'PT Serif', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 2rem;
+    flex-direction: column;
+    gap: 1em;
+}
+h1 {
+    font-size: 3em;
+}
+
+#btn {
+    padding: 10px 20px;
+    border: thick double #F5E6E8;
+    border-radius: 20px;
+    background-color: #192A51;
+    color: #F5E6E8;
+    font-size: 1.5em;
+}
+
+/* Pour la page Home */
+
+#excuse-div{
+font-size : 2em;
+font-family: 'Bebas Neue', cursive;
+}
+
+
 #loader {
     display: none;
+    justify-content: center;
+    align-items: center;
 }
+
+.dot {
+    width : 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #192A51;
+    margin: 0 10px;
+    animation : loader infinite 0.3s alternate;
+}
+
+.d2 {
+    animation-delay: 0.05s
+}
+.d3 {
+    animation-delay: 0.1s
+}
+@keyframes loader {
+    100% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Pour la page Lost */
+
+.gif {
+    width:50vh;
+}
+
+/* Pour les pages admin */
+
+#liste {
+    font-size: 1.5em;
+    text-align: start;
+}
+
+.create-form, .input-tag, .input-message {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.form-label {
+    font-size : 2em;
+}
+
+.form-control {
+    padding: 10px 15px;
+    border : solid 2px #192A51;
+    border-radius: 20px;
+    text-align: center;
+}
+
+
+
+
+
+

@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_SERVER["QUERY_STRING"] == 'key=Fore
     
     // On instancie les salles
         $sentenceController = new sentenceController();
-
+        
     // On récupère les données 
         $sentences =  $sentenceController->getAll();
 

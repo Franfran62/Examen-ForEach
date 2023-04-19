@@ -1,7 +1,7 @@
 <?php 
 
 require_once('./config/database.php');
-   
+
 class sentenceController {
 
     private PDO $pdo;
@@ -9,8 +9,9 @@ class sentenceController {
     // On gère la connection à la BDD lors de la construction de l'objet
         public function __construct() 
         {
-            $connection = new database();
-            $this->pdo = $connection->getConnection();
+
+           $connection = new database();
+           $this->pdo = $connection->getConnection();
         }
 
 
