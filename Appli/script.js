@@ -3,15 +3,30 @@ const url404 = "http://localhost:8888/Test%20ForEach/Code/Appli/erreur404.html";
 
 const Btn = document.getElementById('btn');
 const ExcuseDiv = document.getElementById('excuse-div');
+const Loader = document.getElementById('loader');
+
 
 
 // On écoute le Btn afin de lancer le call API
 Btn.addEventListener('click', () => {
+    setLoader();
     callApi();
 })
 
+function setLoader() {
+    ExcuseDiv.style.display = "none";
+    Loader.style.display = "block";
+
+}
+
+function unsetLoader() {
+    ExcuseDiv.style.display = "block";
+    Loader.style.display = "none";
+}
+
 // On appelle L'API et retourne un tableau contenant l'ensemble des data
 async function callApi() {
+
     // On initialise notre requete et notre format de reception
     const headers = new Headers();
     headers.append('Content-Type', "application/json");
@@ -26,7 +41,6 @@ async function callApi() {
     try {
         const fetchPromise = fetch(urlApi, init);
 
-        // On gère la requete en asynchrone
         await fetchPromise
             .then(response => {
                 return response.json();
@@ -39,7 +53,7 @@ async function callApi() {
 
     } catch (error) {
 
-        window.location = error404;
+        window.location = url404;
 
     }
 
@@ -81,7 +95,11 @@ function CheckSentence(randomSentence) {
 
     if ( ExcuseDiv.textContent !== randomSentence.message)
     {
-        ExcuseDiv.textContent = randomSentence.message;
+        setTimeout(() => {
+            unsetLoader();
+            ExcuseDiv.textContent = randomSentence.message;
+
+        }, getRandomBetweenMinAndMax(1000,5000));
     } else {
         callApi();
     }
