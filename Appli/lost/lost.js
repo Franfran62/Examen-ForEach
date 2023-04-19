@@ -1,5 +1,3 @@
-const urlHome = "http://localhost:8888/Test%20ForEach/Code/Appli/";
-
 const count = document.getElementById('count');
 
 let i = 5;
@@ -15,6 +13,6 @@ function redirection(params) {
         i -= 1;
 
     } else {
-        window.location = urlHome;    
+        window.location = window.urlHome;    
     }
 }

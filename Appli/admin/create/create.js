@@ -1,5 +1,3 @@
-const urlApi = 'http://localhost:8888/Test%20ForEach/Code/API/create.php';
-const url404 = "http://localhost:8888/Test%20ForEach/Code/Appli/erreur404.html";
 
 const form = document.querySelector(".create-form");
 
@@ -25,17 +23,13 @@ function addSentence() {
         'message': formObj.get('message')
     })
 
-    console.log(body);
-
     const init = {
         method: 'POST',
         headers : headers,
         body: body
     };
 
-    console.log(init);
-
-    fetch(urlApi, init)
+    fetch(window.urlApiCreate, init)
         .then (response => {
             if (response.status == 201) 
             {

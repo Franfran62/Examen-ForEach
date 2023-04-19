@@ -1,5 +1,4 @@
-const urlApi = 'http://localhost:8888/Test%20ForEach/Code/API/getAll.php?key=ForeachAcademyKey';
-const url404 = "http://localhost:8888/Test%20ForEach/Code/Appli/erreur404.html";
+const API = window.urlApiGet+"?key=ForeachAcademyKey";
 const list = document.getElementById('liste');
 
 callApi();
@@ -15,7 +14,7 @@ async function callApi() {
     };
 
     try {
-        const fetchPromise = fetch(urlApi, init);
+        const fetchPromise = fetch(API, init);
 
         // On gère la requete en asynchrone
         await fetchPromise
@@ -30,7 +29,7 @@ async function callApi() {
 
     } catch (error) {
 
-        window.location = error404;
+        window.location = window.url404;
 
     }
 
