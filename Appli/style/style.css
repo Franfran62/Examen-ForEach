@@ -97,7 +97,7 @@ font-family: 'Bebas Neue', cursive;
     text-align: start;
 }
 
-.create-form, .input-tag, .input-message {
+.create-form, .input-httpcode, .input-tag, .input-message {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -112,6 +112,7 @@ font-family: 'Bebas Neue', cursive;
     border : solid 2px #192A51;
     border-radius: 20px;
     text-align: center;
+    -webkit-appearance:none;
 }
 
 
