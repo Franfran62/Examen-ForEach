@@ -79,8 +79,12 @@ class sentenceController {
                 'message' => $message
             ];
         }
-        
-        return $sentence;
+        if (isset($sentence))
+        {
+            return $sentence;
+        } else {
+            return false;
+        }
     }
 
 }

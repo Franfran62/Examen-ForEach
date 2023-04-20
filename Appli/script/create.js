@@ -46,6 +46,7 @@ function addSentence() {
             if (response.status == 201) 
             {
                 alert('Votre excuse à bien été ajouté');
+                window.location = urlHome;
             } else {
                 alert('Il y a eu une erreur, veuillez recommencer s\'il vous plait');
             }
