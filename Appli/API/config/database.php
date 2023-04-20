@@ -11,11 +11,11 @@ class database {
 
     // On se connecte à la BDD à la création
 
-        public function getConnection()
+    public function getConnection()
+    {
+        
+        try 
         {
-
-            try 
-            {
                 $this->pdo = new PDO("mysql:dbname=$this->dbname;host=$this->host", $this->username, $this->password);
                 $this->pdo->exec("set names utf8");
                 

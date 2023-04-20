@@ -62,6 +62,25 @@ class sentenceController {
                     }
                 }
         }
+    
+    // On appel un seul objet dans la table
+    public function get(int $httpcode)
+    {
+        $req = $this->pdo->prepare("SELECT * FROM `sentence` WHERE http_code = :httpcode");
+        $req->bindParam(":httpcode", $httpcode, PDO::PARAM_INT);
+        $req->execute();
+        while ($row = $req->fetch(PDO::FETCH_ASSOC)) 
+        {
+            extract($row);
+            $sentence = [
+                'http_code' => $http_code,
+                'tag' => $tag,
+                'message' => $message
+            ];
+        }
+        
+        return $sentence;
+    }
 
 }
 

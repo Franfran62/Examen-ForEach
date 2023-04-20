@@ -7,8 +7,7 @@ count.textContent = `${i}`;
 setInterval(redirection, 1000);
 
 function redirection(params) {
-    if (i > 0)
-    {
+    if (i > 0) {
         count.textContent = `${i}`;
         i -= 1;
 

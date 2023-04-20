@@ -1,0 +1,19 @@
+# On redirige les erreurs 404 vers notre page personnalisée
+ErrorDocument 404 /view/erreur404.html
+
+# On active le module de réécriture d'url
+RewriteEngine On
+
+# On réécrit les URL admin
+RewriteRule creer /view/create.html
+RewriteRule voir /view/show.html
+
+# On réécrit les URL Lost
+RewriteRule crayon /view/lost.html
+
+# On redirige pour afficher le httpcode correspondant
+RewriteRule \$([0-9]+)$ /API/select.php?key=ForeachAcademyKey&httpcode=$1
+
+
+
+

@@ -105,7 +105,7 @@ function checkSentence(randomSentence) {
             callApi();
         }
     } else {
-        alert('RamdonSentence n\'est pas défini');
+        callApi();
     }
 }
 
