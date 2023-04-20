@@ -15,16 +15,22 @@ function addSentence() {
 
     let formObj = new FormData(form);
     
-        if (formObj.get('tag') === "") 
+        if (formObj.get('tag') === "" || 
+            formObj.get('httpcode')=== "" || 
+            formObj.get('httpcode') > 999 || 
+            formObj.get('httpcode') <= 99 ||
+            formObj.get('message') === "" ) 
         { 
-            alert ('Veuillez choisir un Tag');
+            alert ('Veuillez saisir les données correctement');
             return;
-        }
+        } 
+
 
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
 
     const body = JSON.stringify ({
+        'httpcode': formObj.get('httpcode'),
         'tag': formObj.get('tag'),
         'message': formObj.get('message')
     })
@@ -45,4 +51,6 @@ function addSentence() {
             }
         })
 }
+
+
 

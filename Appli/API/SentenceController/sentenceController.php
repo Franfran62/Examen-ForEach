@@ -38,7 +38,7 @@ class sentenceController {
         }
 
     // On créé un objet dans la table renvoyé sous forme de booléen
-        public function create($tag, $message) : bool 
+        public function create(int $httpcode, string $tag, string $message) : bool 
         {
             // On vérifie l'entrée 
                 if (is_string($message))
@@ -47,7 +47,8 @@ class sentenceController {
                     $message = htmlspecialchars(strip_tags($message));
 
                 // On créé l'objet
-                    $req = $this->pdo->prepare("INSERT INTO `sentence` (tag, message) VALUES (:tag, :message)");
+                    $req = $this->pdo->prepare("INSERT INTO `sentence` (http_code, tag, message) VALUES (:httpcode, :tag, :message)");
+                    $req->bindValue(':httpcode', $httpcode, PDO::PARAM_INT);
                     $req->bindValue(':tag', $tag, PDO::PARAM_STR);
                     $req->bindValue(':message', $message, PDO::PARAM_STR);
                     

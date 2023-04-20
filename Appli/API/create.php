@@ -20,9 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $question = json_decode(file_get_contents("php://input"));
 
     // On vérifie que les données ne sont pas vides
-    if (!empty($question) && !empty($question->tag) && !empty($question->message)) {
+    if (!empty($question) && !empty($question->httpcode) && !empty($question->tag) && !empty($question->message)) {
         // On créé l'objet 
-        $data = $sentenceController->create($question->tag, $question->message);
+        $data = $sentenceController->create($question->httpcode, $question->tag, $question->message);
 
         // On renvoie le statut de la création 
         if ($data == true) {
