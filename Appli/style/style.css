@@ -37,6 +37,16 @@ h1 {
     background-color: #192A51;
     color: #F5E6E8;
     font-size: 1.5em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#btn:hover {
+    padding: 15px 25px;
+    font-size:1.6em;
+    background-color: #F5E6E8;
+    border-color: #192A51;
+    color: #192A51;
 }
 
 /* Pour la page Home */

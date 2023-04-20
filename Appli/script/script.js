@@ -48,14 +48,14 @@ async function callApi() {
                 response.forEach(element => {
                     dataReceived.push(element);
                 })
-                defineOneSentence(dataReceived)
+                findHigherAndLower(dataReceived)
             })
 
 
     } catch (error) {
 
         // window.location = window.url404;
-        console.log(API);
+        console.log(error);
 
     }
 
@@ -70,42 +70,54 @@ function getRandomBetweenMinAndMax(min, max) {
 }
 
 // On Selectionne une phrase parmi toutes
-function defineOneSentence(dataReceived) {
-    const lowerHttpCode = dataReceived[0].http_code;
-    let higherHttpCode;
+function findHigherAndLower(dataReceived) {
+    let lowerHttpCode = dataReceived[0].http_code;
+    let higherHttpCode = dataReceived[0].http_code;
+
+    // On trouve le code Http le plus haut et le plus bas dans les data reçues
+    dataReceived.forEach(element => {
+        if (element.http_code > higherHttpCode) {
+            higherHttpCode = element.http_code;
+        } else if (element.http_code < lowerHttpCode) {
+            lowerHttpCode = element.http_code;
+        }
+    })
+    defineRamdomSentence(lowerHttpCode, higherHttpCode, dataReceived);
+    
+}
+
+function defineRamdomSentence(lowerHttpCode, higherHttpCode, dataReceived) {
+    
     let randomHttpCode;
     let randomSentence;
-
-    // On trouve le code Http le plus haut dans les data reçues
-    dataReceived.forEach(sentence => {
-        higherHttpCode = sentence.http_code;
-    })
-
+    
     // On selectionne une phrase aux hasard parmi les existantes
     randomHttpCode = getRandomBetweenMinAndMax(lowerHttpCode, higherHttpCode);
-    randomSentence = dataReceived.find(sentence => sentence.http_code === randomHttpCode.toString());
-    
+    randomSentence = dataReceived.find(sentence => sentence.http_code == randomHttpCode);
+
+    // On vérifie si on en a bien attrapé une ou on hook jusqu'à ce que
+    if (randomSentence) {
+        checkSentence(randomSentence, dataReceived);
+    } else {
+        defineRamdomSentence(lowerHttpCode, higherHttpCode, dataReceived);
+    }
+
     // On envoie à vérification 
-    checkSentence(randomSentence);
 }
 
 // On vérifie si la phrase selectionnée est différente de l'ancienne
 // Si oui, on l'affiche
 // Si non, on hook pour générer une nouvelle phrase
-function checkSentence(randomSentence) {
+function checkSentence(randomSentence, dataReceived) {
 
-    if (randomSentence) {
-        if (excuseDiv.textContent !== randomSentence.message) {
-            setTimeout(() => {
-                unsetLoader();
-                excuseDiv.textContent = randomSentence.message;
+    if (excuseDiv.textContent !== randomSentence.message) {
+        setTimeout(() => {
+            unsetLoader();
+            excuseDiv.textContent = randomSentence.message;
 
-            }, getRandomBetweenMinAndMax(1000, 5000));
-        } else {
-            callApi();
-        }
+        }, getRandomBetweenMinAndMax(1000, 5000));
     } else {
-        callApi();
+        defineRamdomSentence(lowerHttpCode, higherHttpCode, dataReceived);
     }
 }
 
