@@ -1,14 +1,14 @@
 # On redirige les erreurs 404 vers notre page personnalisée #
-ErrorDocument 404 /examen-foreach/Code/Appli/view/erreur404.html
+ErrorDocument 404 /examen-foreach/Appli/view/erreur404.html
 
 # On active le module de réécriture d'url #
 RewriteEngine On
 
 #### Pour la version local  #######
-RewriteRule ^creer$ /examen-foreach/Code/Appli/view/create.html [L]
-RewriteRule ^voir$ /examen-foreach/Code/Appli/view/show.html [L]
-RewriteRule ^perdu$ /examen-foreach/Code/Appli/view/lost.html [L]
-RewriteRule ^\$([0-9]+)$ /examen-foreach/Code/Appli/API/select.php?key=ForeachAcademyKey&httpcode=$1 [L]
+RewriteRule ^creer$ /examen-foreach/Appli/view/create.html [L]
+RewriteRule ^voir$ /examen-foreach/Appli/view/show.html [L]
+RewriteRule ^perdu$ /examen-foreach/Appli/view/lost.html [L]
+RewriteRule ^\$([0-9]+)$ /examen-foreach/Appli/API/select.php?key=ForeachAcademyKey&httpcode=$1 [L]
 
 ###### Pour la version online ########
 

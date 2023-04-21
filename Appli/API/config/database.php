@@ -4,7 +4,7 @@ class database {
 
     private PDO $pdo;
 
-    private $dbname = "TestForEach";
+    private $dbname = "examenForeachExterne";
     private $host = "localhost";
     private $username = "root";
     private $password = "root";

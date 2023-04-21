@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS examenForeachExterne;
+
+USE examenForeachExterne;
+
 CREATE TABLE `sentence` (
   `id` int(11) NOT NULL,
   `http_code` int(11) NOT NULL,
