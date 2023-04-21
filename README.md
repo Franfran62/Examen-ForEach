@@ -6,9 +6,18 @@ Voici mon projet pour l'examen Bachelor externe d'entrée à l'école ForEach Ac
 
 Il s'agit d'un générateur de phrase "Excuses de Dev" pour faire patienter les utilisateurs.
 
-Vous pouvez retrouver ce projet en ligne à l'adresse suivante : 
+Vous pouvez retrouver ce projet déployé à l'adresse suivante : 
 
 https://www.examen-foreach.francoiskukla.fr/
+
+Voici l'ensemble des url disponible sur la version en ligne : 
+
+- https://www.examen-foreach.francoiskukla.fr/creer
+- https://www.examen-foreach.francoiskukla.fr/voir
+- https://www.examen-foreach.francoiskukla.fr/perdu
+- https://www.examen-foreach.francoiskukla.fr/${http_code}
+
+
 
 ## Table des matières
 
@@ -47,7 +56,7 @@ https://code.visualstudio.com/download
 - Lancez l'application MAMP et vérifier que la configuration Web Server est bien sur : Apache.
 - Ouvrez Visual Studio Code, et ouvrez le dossier indiqué comme "Document Root" depuis l'application MAMP (souvent nommé à l'installtion "htdocs")
 - Ouvrez un terminal de commande dans ce dossier via VSCode (Terminal > Nouveau Terminal), et tapez la commande suivante : 
-"git clone https://github.com/Franfran62/Examen-ForEach.git".
+"git clone https://github.com/Franfran62/examen-foreach.git".
 
 ### Préparer votre base de données
 
@@ -73,9 +82,9 @@ https://code.visualstudio.com/download
 
 Vous pouvez retrouvez les URL disponible directement ci-dessous : 
 
-/examen-foreach/Appli/creer : pour ajouter une nouvelle phrase 
-/examen-foreach/Appli/voir : voir toutes les phrases enregistrées en Base de données 
-/examen-foreach/Appli/perdu : Etre redirigé vers la page d'accueil
+- /examen-foreach/Appli/creer : pour ajouter une nouvelle phrase 
+- /examen-foreach/Appli/voir : voir toutes les phrases enregistrées en Base de données 
+- /examen-foreach/Appli/perdu : Etre redirigé vers la page d'accueil
 /examen-foreach/Appli/${http_code}
 
 {http_code} : Vous pouvez saisir un nombre correspondant au HTTP_code que vous osuhaitez voir
